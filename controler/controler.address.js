@@ -14,9 +14,9 @@ const getAddress = async (req, res, next) => {
 
 const createAddress = async (req, res, next) => {
     try {
-        const { name, kota, provinsi, alamatDetail } = req.body
+        const { name, kota, provinsi, kecamatan } = req.body
 
-        const newAddress = await Address.create({ user: req.user.id, name, kota, provinsi, alamatDetail })
+        const newAddress = await Address.create({ user: req.user.id, name, kota, provinsi, kecamatan })
 
         res.status(201).json({
             error: false,
@@ -30,8 +30,8 @@ const createAddress = async (req, res, next) => {
 
 const updateAddress = async (req, res, next) => {
     try {
-        const { name, kota, provinsi, alamatDetail } = req.body
-        const newAddress = await Address.updateOne({ _id: req.params.id }, { name, kota, provinsi, alamatDetail })
+        const { name, kota, provinsi, kecamatan } = req.body
+        const newAddress = await Address.updateOne({ _id: req.params.id }, { name, kota, provinsi, kecamatan })
 
         if (newAddress.modifiedCount === 1) {
             res.status(201).json({

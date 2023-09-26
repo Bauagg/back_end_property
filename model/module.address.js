@@ -17,8 +17,9 @@ const moduleAddress = mongoose.Schema({
         type: String,
         required: [true, 'provinsi harus di isi'],
     },
-    alamatDetail: {
-        type: String
+    kecamatan: {
+        type: String,
+        required: [true, 'provinsi harus di isi'],
     }
 })
 
